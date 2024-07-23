@@ -60,7 +60,7 @@ async function getSong(folder) {
             playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
         })
     })     
-    return songs
+    // return songs
 }
 
 const playMusic = (track, pause = false)=>{
@@ -107,15 +107,17 @@ async function displayAlbums(){
         
     }
         //Load the playlist whenever card is clicked
-        Array.from(document.getElementsByClassName("class")).forEach(e=>{
+        Array.from(document.getElementsByClassName("card")).forEach(e=>{
             e.addEventListener("click", async item=>{
-                songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
+                songs = await getSong(`songs/${item.currentTarget.dataset.folder}`)
+                // console.log(e)
+                // playMusic(songs[0])
             })
         })
 }
 
 async function main() {    
-    await getSong("songs/7DS")
+    await getSong("songs/MHA")
     // console.log(songs)
     playMusic(songs[0], true) 
     //Display all the albums on the page
@@ -206,4 +208,6 @@ async function main() {
 
 }
 
-main()
+document.addEventListener("DOMContentLoaded", () => {
+    main();
+});
