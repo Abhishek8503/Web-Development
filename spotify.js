@@ -50,7 +50,7 @@ const playMusic = (track, pause = false)=>{
 async function main() {    
     songs = await getSong()
     // console.log(songs)
-    playMusic(songs[58], true) 
+    playMusic(songs[8], true) 
 
 
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
